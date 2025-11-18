@@ -48,8 +48,13 @@ export const metadata: Metadata = {
     images: ["/images/AboveLogo.png"],
   },
   icons: {
-    icon: "/images/AboveLogo.png",
+    icon: [
+      { url: "/images/AboveLogo.png" },
+      { url: "/images/AboveLogo.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/AboveLogo.png", sizes: "16x16", type: "image/png" },
+    ],
     apple: "/images/AboveLogo.png",
+    shortcut: "/images/AboveLogo.png",
   },
 };
 
