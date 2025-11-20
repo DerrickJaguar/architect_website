@@ -146,36 +146,36 @@ export default function ContactPage() {
                 <h3 className="text-primary font-semibold text-lg mb-4">Follow Us</h3>
                 <div className="flex gap-4">
                   <a
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/Abovearchitects?mibextid=ZbWKwL"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary hover:bg-accent hover:text-white transition-all duration-300 shadow-md hover:shadow-xl"
+                    className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-xl"
                   >
                     <i className="fab fa-facebook-f"></i>
                   </a>
                   <a
-                    href="https://twitter.com"
+                    href="https://x.com/AshabaBenard?t=I6Y5ZosNcO9kdenc-3gTwg&s=08"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary hover:bg-accent hover:text-white transition-all duration-300 shadow-md hover:shadow-xl"
+                    className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary hover:bg-black hover:text-white transition-all duration-300 shadow-md hover:shadow-xl"
                   >
                     <i className="fab fa-twitter"></i>
                   </a>
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/abovearchitects?igsh=MTg5anB6dHpnbzZncA=="
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary hover:bg-accent hover:text-white transition-all duration-300 shadow-md hover:shadow-xl"
+                    className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary hover:bg-linear-to-r hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 hover:text-white transition-all duration-300 shadow-md hover:shadow-xl"
                   >
                     <i className="fab fa-instagram"></i>
                   </a>
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.youtube.com/@abovearchitects"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary hover:bg-accent hover:text-white transition-all duration-300 shadow-md hover:shadow-xl"
+                    className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary hover:bg-red-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-xl"
                   >
-                    <i className="fab fa-linkedin-in"></i>
+                    <i className="fab fa-youtube"></i>
                   </a>
                 </div>
               </div>

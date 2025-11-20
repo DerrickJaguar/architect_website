@@ -19,7 +19,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-all duration-300 hover:-translate-y-1"
+                className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-linear-to-r hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 transition-all duration-300 hover:-translate-y-1"
               >
                 <i className="fab fa-instagram text-xl"></i>
               </a>
@@ -28,7 +28,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter"
-                className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-all duration-300 hover:-translate-y-1"
+                className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-black transition-all duration-300 hover:-translate-y-1"
               >
                 <i className="fab fa-twitter text-xl"></i>
               </a>
@@ -37,7 +37,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-all duration-300 hover:-translate-y-1"
+                className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 hover:-translate-y-1"
               >
                 <i className="fab fa-facebook text-xl"></i>
               </a>
@@ -46,7 +46,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-all duration-300 hover:-translate-y-1"
+                className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition-all duration-300 hover:-translate-y-1"
               >
                 <i className="fab fa-youtube text-xl"></i>
               </a>
@@ -101,7 +101,7 @@ export default function Footer() {
                   href="mailto:abovearchitects@gmail.com"
                   className="hover:text-accent transition-colors"
                 >
-                  abovearchitects@gmail.com
+                  contact@abovearchitects.com
                 </a>
               </li>
               <li className="flex items-start">

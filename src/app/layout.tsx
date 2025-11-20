@@ -49,12 +49,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/AboveLogo.png" },
-      { url: "/images/AboveLogo.png", sizes: "32x32", type: "image/png" },
-      { url: "/images/AboveLogo.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/above_logo.jpg" },
+      { url: "/images/above_logo.jpg", sizes: "32x32", type: "image/jpeg" },
+      { url: "/images/above_logo.jpg", sizes: "16x16", type: "image/jpeg" },
     ],
-    apple: "/images/AboveLogo.png",
-    shortcut: "/images/AboveLogo.png",
+    apple: "/images/above_logo.jpg",
+    shortcut: "/images/above_logo.jpg",
   },
 };
 

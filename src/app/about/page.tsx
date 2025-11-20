@@ -10,27 +10,27 @@ type TeamMember = {
 
 const teamMembers: TeamMember[] = [
   {
-    name: 'Eng. Erem Edward',
+    name: 'Mr. Ashaba Benard',
     role: 'Chief Executive Officer',
-    image: '/images/team/edward.jpg',
+    image: '/images/benard.jpg',
     bio: 'Leading Above Architects with vision and expertise',
   },
   {
-    name: 'John Smith',
+    name: 'Mr. Joshua',
     role: 'Lead Architect',
-    image: '/images/team/john.jpg',
+    image: '/images/Joshua.jpg',
     bio: 'Expert in sustainable design and urban planning',
   },
   {
-    name: 'Sarah Johnson',
+    name: 'Mr. Brian',
     role: 'Senior Designer',
-    image: '/images/team/sarah.jpg',
+    image: '/images/Brian.jpg',
     bio: 'Specializing in modern residential architecture',
   },
   {
-    name: 'Michael Brown',
+    name: 'Ms. Daphne',
     role: 'Project Manager',
-    image: '/images/team/michael.jpg',
+    image: '/images/Daphne .jpg',
     bio: 'Ensuring projects are delivered on time and budget',
   },
 ];
@@ -77,9 +77,12 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="relative h-96 lg:h-full rounded-lg overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-primary/20 flex items-center justify-center">
-                <i className="fas fa-building text-white text-9xl opacity-20"></i>
-              </div>
+              <Image
+                src="/images/pexels-aleksandar-pasaric-1758672.jpg"
+                alt="Above Architects Building"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -154,8 +157,13 @@ export default function AboutPage() {
                 key={member.name}
                 className="bg-light rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
               >
-                <div className="relative h-80 bg-primary/20 flex items-center justify-center">
-                  <i className="fas fa-user text-white text-6xl opacity-30"></i>
+                <div className="relative h-80 bg-gray-200">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div className="p-6 text-center">
                   <h3 className="text-primary font-display text-xl font-semibold mb-2">
