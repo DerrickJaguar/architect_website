@@ -118,7 +118,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-white/10 pt-8 text-center">
-          <p className="text-gray-400">&copy; 2025 Above Architects. All rights reserved.</p>
+          <p className="text-gray-400">&copy; 2026 Above Architects. All rights reserved.</p>
         </div>
       </div>
     </footer>
