@@ -1,0 +1,140 @@
+Above Architects - Design Improvements Roadmap
+Date: 2026-04-03
+References reviewed:
+- https://www.maramani.com/
+- https://topnotchplan.com/
+
+==================================================
+1) HIGH-IMPACT IMPROVEMENTS TO ADD
+==================================================
+
+1. Add a trust strip under the hero section
+- Purpose: Build confidence immediately.
+- Suggested items:
+  - 29+ Projects Delivered
+  - Licensed Architectural Team
+  - On-Time Delivery Commitment
+  - Sustainable Design Approach
+- UI notes:
+  - Icon + short label format
+  - Keep compact and mobile friendly
+
+2. Upgrade project cards with metadata badges
+- Purpose: Make portfolio feel premium and informative.
+- Add fields on each project card:
+  - Project type (Residential, Commercial, etc.)
+  - Location
+  - Year
+  - Built area (sqm)
+  - Stage
+- Add stage badges:
+  - Concept
+  - Design Stage
+  - Under Construction
+  - Completed
+
+3. Add category filter chips on Projects page
+- Purpose: Help users discover work faster.
+- Suggested categories:
+  - Residential
+  - Commercial
+  - Institutional
+  - Hospitality
+  - Mixed Use
+- Optional second-level filters:
+  - Budget range
+  - Plot size
+  - Floors
+  - Bedrooms
+
+4. Add one featured case-study section on homepage
+- Purpose: Tell one high-value story with outcomes.
+- Block content format:
+  - Challenge
+  - Approach
+  - Result
+- Include 3 measurable outcomes where possible:
+  - Area delivered
+  - Timeline
+  - Cost efficiency or value outcome
+
+5. Add social proof section before final CTA
+- Purpose: Increase conversion with trust evidence.
+- Include:
+  - 3 client testimonials
+  - Project type + location per testimonial
+  - Optional client/partner logo row
+
+6. Add a secondary CTA in the middle of homepage
+- Purpose: Capture user intent earlier.
+- Two action paths:
+  - Browse Projects
+  - Request Consultation
+
+7. Improve section rhythm and depth
+- Purpose: Increase premium visual feel.
+- Add:
+  - Alternating section backgrounds
+  - Subtle gradient overlays
+  - Better spacing contrast between sections
+  - Editorial image/text alternation
+
+8. Add "Design by Need" quick-entry blocks
+- Purpose: Help undecided users enter portfolio quickly.
+- Suggested blocks:
+  - By Budget
+  - By Family Size
+  - By Property Type
+
+==================================================
+2) INSIGHTS FROM REFERENCE SITES
+==================================================
+
+Maramani patterns worth adopting
+- Strong conversion structure with repeated CTAs
+- Clear browsing by budget and family size
+- Heavy trust signals (reviews, guarantees, payments)
+
+TopNotchPlan patterns worth adopting
+- Project-first premium presentation
+- Rich project metadata and lifecycle stages
+- Strong category segmentation and filtering
+
+==================================================
+3) RECOMMENDED IMPLEMENTATION ORDER
+==================================================
+
+Phase 1 (quick wins)
+1. Trust strip under hero
+2. Project card metadata + stage labels
+3. Category filters on Projects page
+
+Phase 2 (conversion + storytelling)
+4. Featured case study section
+5. Social proof/testimonials section
+6. Mid-page secondary CTA
+
+Phase 3 (polish + discovery)
+7. Visual rhythm/depth improvements
+8. Design-by-need entry blocks
+
+==================================================
+4) CONTENT ASSETS TO PREPARE
+==================================================
+
+- Final list of project categories and stages
+- Project metadata (location, year, area, type)
+- 3 client testimonial quotes with attribution
+- 1 flagship case study narrative and metrics
+- Optional logo assets for trust section
+
+==================================================
+5) SUCCESS METRICS TO TRACK AFTER DEPLOYMENT
+==================================================
+
+- Click-through rate to Projects page
+- Contact form submissions
+- Scroll depth on homepage
+- Time spent on Projects page
+- Filter interaction rate
+- CTA click split (Browse Projects vs Request Consultation)

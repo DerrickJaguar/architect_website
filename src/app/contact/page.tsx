@@ -50,21 +50,18 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Page Header */}
-      <section className="relative py-20 bg-linear-to-r from-primary to-dark overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-white font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            Contact Us
-          </h1>
-          <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto">
-            Let's discuss your next architectural project
+      <section className="pt-32 pb-12 bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-primary font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+          <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto">
+            Let&apos;s discuss your next architectural project
           </p>
         </div>
       </section>
 
       {/* Contact Content */}
       <section className="py-20 bg-light">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
@@ -72,7 +69,7 @@ export default function ContactPage() {
                 Get In Touch
               </h2>
               <div className="w-20 h-1 bg-accent mb-8"></div>
-              <p className="text-gray-600 text-lg leading-relaxed mb-10">
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-10">
                 We'd love to hear from you! Whether you have a question about our services, need
                 architectural consultation, or want to discuss a project, our team is ready to
                 answer all your questions.
@@ -182,7 +179,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white p-8 rounded-lg shadow-xl">
+            <div className="bg-white p-5 sm:p-8 rounded-lg shadow-xl">
               <h2 className="text-primary font-display text-2xl font-bold mb-6">Send a Message</h2>
 
               {submitStatus === 'success' && (

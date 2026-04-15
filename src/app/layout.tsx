@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,20 +7,22 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import BackToTop from "@/components/BackToTop";
 import PageLoader from "@/components/PageLoader";
 
-const inter = Inter({
-  variable: "--font-inter",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.abovearchitects.com"),
   title: "Above Architects - Excellence in Architecture & Design | Uganda",
   description: "Leading architectural firm in Uganda specializing in residential, commercial, and mixed-use design. Excellence in Architecture & Design.",
   keywords: ["Above Architects", "Architecture Uganda", "Interior design", "Landscaping", "Construction", "Consultancy", "Kampala architects", "Uganda architecture"],
@@ -74,7 +76,7 @@ export default function RootLayout({
         ></script>
       </head>
       <body
-        className={`${inter.variable} ${playfair.variable} font-sans text-gray-800 antialiased`}
+        className={`${montserrat.variable} ${cormorant.variable} font-sans text-gray-800 antialiased`}
         suppressHydrationWarning
       >
         <PageLoader />

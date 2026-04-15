@@ -24,6 +24,7 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/projects', label: 'Projects' },
+    { href: '/calculator', label: 'Calculator' },
     { href: '/about', label: 'About Us' },
     { href: '/blog', label: 'Blog' },
   ];
@@ -31,25 +32,25 @@ export default function Navbar() {
   return (
     <nav
       id="navbar"
-      className="fixed top-0 left-0 w-full bg-primary/95 backdrop-blur-md z-50 shadow-lg"
+      className="fixed top-0 left-0 w-full z-50 shadow-lg bg-white/95 backdrop-blur-sm"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link
             href="/"
-            className="text-white font-display text-2xl lg:text-3xl font-bold tracking-wide hover:text-accent transition-colors"
+            className="font-display text-2xl lg:text-3xl font-bold tracking-wide transition-colors text-primary hover:text-accent"
           >
             Above Architects
           </Link>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex items-center space-x-8">
+          <ul className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`text-white font-medium text-sm lg:text-base hover:text-accent transition-colors relative group ${
+                  className={`font-medium text-sm xl:text-base hover:text-accent transition-colors relative group text-gray-800 ${
                     isActive(link.href) ? 'text-accent' : ''
                   }`}
                 >
@@ -75,7 +76,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             id="mobile-menu-btn"
-            className="md:hidden text-white focus:outline-none"
+            className="lg:hidden focus:outline-none text-primary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -88,7 +89,7 @@ export default function Navbar() {
       <div
         className={`${
           mobileMenuOpen ? 'block' : 'hidden'
-        } md:hidden bg-primary/98 backdrop-blur-md`}
+        } lg:hidden bg-white/98 backdrop-blur-md`}
       >
         <ul className="px-6 py-4 space-y-3">
           {navLinks.map((link) => (
@@ -96,7 +97,7 @@ export default function Navbar() {
               <Link
                 href={link.href}
                 className={`block font-medium py-2 hover:text-accent transition-colors ${
-                  isActive(link.href) ? 'text-accent' : 'text-white'
+                  isActive(link.href) ? 'text-accent' : 'text-primary'
                 }`}
               >
                 {link.label}

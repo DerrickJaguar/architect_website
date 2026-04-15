@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer id="main-footer" className="bg-primary text-white py-16">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Company Info */}
@@ -13,7 +13,7 @@ export default function Footer() {
               Leading architectural firm in Uganda specializing in innovative design and
               sustainable solutions for residential, commercial, and mixed-use projects.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4">
               <a
                 href="https://www.instagram.com/abovearchitects?igsh=MTg5anB6dHpnbzZncA=="
                 target="_blank"
@@ -99,7 +99,7 @@ export default function Footer() {
                 <i className="fas fa-envelope mt-1 mr-3 text-accent"></i>
                 <a
                   href="mailto:abovearchitects@gmail.com"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-accent transition-colors break-all"
                 >
                   contact@abovearchitects.com
                 </a>
