@@ -30,7 +30,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Mr. Jonathan Okware Arthur',
     role: 'Project Manager',
-    image: '/images/Jonathan.jpeg',
+    image: '/images/jonathan.jpeg',
     bio: 'Ensuring projects are delivered on time and budget',
   },
 ];
