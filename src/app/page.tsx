@@ -7,10 +7,10 @@ import BenefitStrip from '@/components/BenefitStrip';
 
 export default function HomePage() {
   const heroImages = [
-    '/images/design1.jpg',
-    '/images/comm1.jpg',
-    '/images/condomonium.jpeg',
-    '/images/apartment.jpeg',
+    '/images/item-1.jpg',
+    '/images/item-2.jpg',
+    '/images/item-3.jpg',
+    '/images/item-4.jpg',
   ];
 
   const [activeSlide, setActiveSlide] = useState(0);
