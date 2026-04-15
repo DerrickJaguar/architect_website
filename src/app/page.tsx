@@ -9,7 +9,7 @@ export default function HomePage() {
   const heroImages = [
     '/images/design1.jpg',
     '/images/comm1.jpg',
-    '/images/mixed.jpeg',
+    '/images/condomonium.jpeg',
     '/images/apartment.jpeg',
   ];
 

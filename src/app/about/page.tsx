@@ -28,9 +28,9 @@ const teamMembers: TeamMember[] = [
     bio: 'Specializing in modern residential architecture',
   },
   {
-    name: 'Ms. Daphne',
+    name: 'Mr. Jonathan Okware Arthur',
     role: 'Project Manager',
-    image: '/images/Daphne .jpg',
+    image: '/images/Jonathan.jpeg',
     bio: 'Ensuring projects are delivered on time and budget',
   },
 ];
