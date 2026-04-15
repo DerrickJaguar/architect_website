@@ -10,7 +10,7 @@ export default function HomePage() {
     '/images/item-1.jpg',
     '/images/item-2.jpg',
     '/images/item-3.jpg',
-    '/images/item-4.jpg',
+    '/images/item-9.jpg',
   ];
 
   const [activeSlide, setActiveSlide] = useState(0);
