@@ -24,9 +24,8 @@ const stageOptions: Array<'All' | ProjectRecord['stage']> = [
   'Under Construction',
   'Completed',
 ];
-const areaRanges = ['Any', '0-3000', '3001-10000', '10001+'];
 
-type SortOption = 'Newest' | 'Largest' | 'Most Viewed';
+type SortOption = 'Newest' | 'Most Viewed';
 
 const stageClasses: Record<ProjectRecord['stage'], string> = {
   Concept: 'bg-amber-100 text-amber-800',
@@ -41,7 +40,6 @@ export default function ProjectsPage() {
   const [activeFloors, setActiveFloors] = useState('Any');
   const [activeBedrooms, setActiveBedrooms] = useState('Any');
   const [activeStage, setActiveStage] = useState<'All' | ProjectRecord['stage']>('All');
-  const [activeAreaRange, setActiveAreaRange] = useState('Any');
   const [activeLocation, setActiveLocation] = useState('All Locations');
   const [activeSort, setActiveSort] = useState<SortOption>('Newest');
 
@@ -74,7 +72,7 @@ export default function ProjectsPage() {
     if (location && locationOptions.includes(location)) {
       setActiveLocation(location);
     }
-    if (sort && ['Newest', 'Largest', 'Most Viewed'].includes(sort)) {
+    if (sort && ['Newest', 'Most Viewed'].includes(sort)) {
       setActiveSort(sort);
     }
   }, []);
@@ -100,26 +98,16 @@ export default function ProjectsPage() {
         (activeBedrooms === '3-4' && project.bedrooms >= 3 && project.bedrooms <= 4) ||
         (activeBedrooms === '5+' && project.bedrooms >= 5);
 
-      const areaMatch =
-        activeAreaRange === 'Any' ||
-        (activeAreaRange === '0-3000' && project.areaSqft <= 3000) ||
-        (activeAreaRange === '3001-10000' && project.areaSqft >= 3001 && project.areaSqft <= 10000) ||
-        (activeAreaRange === '10001+' && project.areaSqft >= 10001);
-
       return (
         categoryMatch &&
         budgetMatch &&
         stageMatch &&
         locationMatch &&
         floorMatch &&
-        bedroomMatch &&
-        areaMatch
+        bedroomMatch
       );
       })
       .sort((a, b) => {
-        if (activeSort === 'Largest') {
-          return b.areaSqft - a.areaSqft;
-        }
         if (activeSort === 'Most Viewed') {
           return b.popularityScore - a.popularityScore;
         }
@@ -132,7 +120,6 @@ export default function ProjectsPage() {
     activeFloors,
     activeBedrooms,
     activeStage,
-    activeAreaRange,
     activeLocation,
     activeSort,
   ]);
@@ -232,19 +219,7 @@ export default function ProjectsPage() {
               </button>
             ))}
 
-            {areaRanges.map((range) => (
-              <button
-                key={range}
-                onClick={() => setActiveAreaRange(range)}
-                className={`shrink-0 px-4 py-2 rounded-full border transition-all duration-300 ${
-                  activeAreaRange === range
-                    ? 'border-primary bg-primary text-white'
-                    : 'border-gray-200 bg-white text-gray-600 hover:border-accent hover:text-accent'
-                }`}
-              >
-                {range === 'Any' ? 'Any Area' : `${range} ft2`}
-              </button>
-            ))}
+            {/* Square-area filter hidden for now */}
           </div>
 
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mx-auto">
@@ -266,7 +241,6 @@ export default function ProjectsPage() {
               className="w-full rounded-full border border-gray-200 px-4 py-2 text-sm text-gray-700 focus:border-accent focus:outline-none"
             >
               <option value="Newest">Sort: Newest</option>
-              <option value="Largest">Sort: Largest</option>
               <option value="Most Viewed">Sort: Most Viewed</option>
             </select>
           </div>
@@ -288,7 +262,6 @@ export default function ProjectsPage() {
                 setActiveFloors('Any');
                 setActiveBedrooms('Any');
                 setActiveStage('All');
-                setActiveAreaRange('Any');
                 setActiveLocation('All Locations');
                 setActiveSort('Newest');
               }}
@@ -347,11 +320,8 @@ export default function ProjectsPage() {
                     <i className="fas fa-map-marker-alt text-accent"></i>
                     {project.location}
                   </p>
-                  <div className="grid grid-cols-3 gap-2 mb-4 text-xs sm:text-sm">
-                    <div className="bg-light rounded-lg px-3 py-2">
-                      <p className="text-gray-500">Area</p>
-                      <p className="text-primary font-semibold">{project.areaSqft.toLocaleString()} ft²</p>
-                    </div>
+                  <div className="grid grid-cols-2 gap-2 mb-4 text-xs sm:text-sm">
+                    {/* Square-area card hidden for now */}
                     <div className="bg-light rounded-lg px-3 py-2">
                       <p className="text-gray-500">Floors</p>
                       <p className="text-primary font-semibold">{project.floors}</p>

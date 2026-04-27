@@ -87,12 +87,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                       <p className="text-primary font-semibold">{project.details.client}</p>
                     </div>
                   )}
-                  <div>
-                    <p className="text-gray-500 text-sm mb-1">Area</p>
-                    <p className="text-primary font-semibold">
-                      {project.areaSqft.toLocaleString()} sq ft
-                    </p>
-                  </div>
+                  {/* Square-area detail hidden for now */}
                   {project.details.budget && (
                     <div>
                       <p className="text-gray-500 text-sm mb-1">Budget</p>
