@@ -1,17 +1,33 @@
 'use client';
 
-import { notFound } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useParams, notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { projects } from '@/data/projects';
+import { type ProjectRecord } from '@/data/projects';
+import { getAllProjects } from '@/lib/projectStorage';
 
-export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const project = projects.find((p) => p.id === parseInt(id));
+export default function ProjectDetailPage() {
+  const params = useParams();
+  const id = parseInt(params.id as string);
 
-  if (!project) {
-    notFound();
-  }
+  const [project, setProject] = useState<ProjectRecord | undefined>(undefined);
+  const [allProjects, setAllProjects] = useState<ProjectRecord[]>([]);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const all = getAllProjects();
+    setAllProjects(all);
+    setProject(all.find((p) => p.id === id));
+    setReady(true);
+  }, [id]);
+
+  if (!ready) return <div className="min-h-screen" />;
+  if (!project) return notFound();
+
+  const relatedProjects = allProjects
+    .filter((p) => p.id !== project.id && p.category === project.category)
+    .slice(0, 3);
 
   return (
     <div className="min-h-screen">
@@ -87,7 +103,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                       <p className="text-primary font-semibold">{project.details.client}</p>
                     </div>
                   )}
-                  {/* Square-area detail hidden for now */}
                   {project.details.budget && (
                     <div>
                       <p className="text-gray-500 text-sm mb-1">Budget</p>
@@ -152,16 +167,14 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       )}
 
       {/* Related Projects */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-primary font-display text-3xl font-bold mb-12 text-center">
-            More Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {projects
-              .filter((p) => p.id !== project.id && p.category === project.category)
-              .slice(0, 3)
-              .map((relatedProject) => (
+      {relatedProjects.length > 0 && (
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-primary font-display text-3xl font-bold mb-12 text-center">
+              More Projects
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {relatedProjects.map((relatedProject) => (
                 <Link
                   key={relatedProject.id}
                   href={`/projects/${relatedProject.id}`}
@@ -183,9 +196,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   </div>
                 </Link>
               ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-20 bg-linear-to-r from-primary to-dark">

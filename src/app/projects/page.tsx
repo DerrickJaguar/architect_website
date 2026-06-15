@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { projects, type ProjectRecord } from '@/data/projects';
+import { projects as staticProjects, type ProjectRecord } from '@/data/projects';
+import { getStoredProjects } from '@/lib/projectStorage';
 
 const categories = [
   'All',
@@ -43,9 +44,47 @@ export default function ProjectsPage() {
   const [activeLocation, setActiveLocation] = useState('All Locations');
   const [activeSort, setActiveSort] = useState<SortOption>('Newest');
 
+  const [lightboxImages, setLightboxImages] = useState<string[] | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const lightboxRef = useRef<HTMLDivElement>(null);
+
+  const openLightbox = useCallback((project: ProjectRecord) => {
+    setLightboxImages([project.image, ...project.details.gallery]);
+    setLightboxIndex(0);
+  }, []);
+
+  const closeLightbox = useCallback(() => setLightboxImages(null), []);
+
+  const lightboxPrev = useCallback(() =>
+    setLightboxIndex((i) => (lightboxImages ? (i - 1 + lightboxImages.length) % lightboxImages.length : 0)),
+    [lightboxImages]
+  );
+
+  const lightboxNext = useCallback(() =>
+    setLightboxIndex((i) => (lightboxImages ? (i + 1) % lightboxImages.length : 0)),
+    [lightboxImages]
+  );
+
+  useEffect(() => {
+    if (!lightboxImages) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lightboxPrev();
+      if (e.key === 'ArrowRight') lightboxNext();
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [lightboxImages, lightboxPrev, lightboxNext, closeLightbox]);
+
+  const [projects, setProjects] = useState<ProjectRecord[]>(staticProjects);
+
+  useEffect(() => {
+    setProjects([...staticProjects, ...getStoredProjects()]);
+  }, []);
+
   const locationOptions = useMemo(
     () => ['All Locations', ...Array.from(new Set(projects.map((project) => project.location)))],
-    []
+    [projects]
   );
 
   useEffect(() => {
@@ -115,6 +154,7 @@ export default function ProjectsPage() {
         return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
       });
   }, [
+    projects,
     activeCategory,
     activeBudget,
     activeFloors,
@@ -277,7 +317,12 @@ export default function ProjectsPage() {
                 key={project.id}
                 className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
               >
-                <div className="relative h-64 bg-gray-200 overflow-hidden">
+                <div
+                  className="relative h-64 bg-gray-200 overflow-hidden cursor-zoom-in"
+                  onClick={() => openLightbox(project)}
+                  role="button"
+                  aria-label={`View gallery for ${project.title}`}
+                >
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -285,6 +330,12 @@ export default function ProjectsPage() {
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300"></div>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <div className="bg-white/90 rounded-full px-4 py-2 flex items-center gap-2 text-primary font-semibold text-sm shadow-lg">
+                      <i className="fas fa-expand-alt"></i>
+                      View Gallery
+                    </div>
+                  </div>
                   <span
                     className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold ${stageClasses[project.stage]}`}
                   >
@@ -352,6 +403,74 @@ export default function ProjectsPage() {
           )}
         </div>
       </section>
+
+      {/* Lightbox */}
+      {lightboxImages && (
+        <div
+          ref={lightboxRef}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+          onClick={(e) => { if (e.target === lightboxRef.current) closeLightbox(); }}
+        >
+          {/* Close */}
+          <button
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 text-white bg-white/10 hover:bg-white/25 rounded-full w-10 h-10 flex items-center justify-center transition-colors"
+            aria-label="Close gallery"
+          >
+            <i className="fas fa-times text-lg"></i>
+          </button>
+
+          {/* Counter */}
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white/80 text-sm font-medium bg-black/40 px-3 py-1 rounded-full">
+            {lightboxIndex + 1} / {lightboxImages.length}
+          </div>
+
+          {/* Prev */}
+          <button
+            onClick={lightboxPrev}
+            className="absolute left-4 text-white bg-white/10 hover:bg-white/25 rounded-full w-12 h-12 flex items-center justify-center transition-colors"
+            aria-label="Previous image"
+          >
+            <i className="fas fa-chevron-left text-lg"></i>
+          </button>
+
+          {/* Image */}
+          <div className="relative w-full max-w-5xl mx-16 aspect-[4/3]">
+            <Image
+              key={lightboxImages[lightboxIndex]}
+              src={lightboxImages[lightboxIndex]}
+              alt={`Gallery image ${lightboxIndex + 1}`}
+              fill
+              className="object-contain"
+              sizes="90vw"
+            />
+          </div>
+
+          {/* Next */}
+          <button
+            onClick={lightboxNext}
+            className="absolute right-4 text-white bg-white/10 hover:bg-white/25 rounded-full w-12 h-12 flex items-center justify-center transition-colors"
+            aria-label="Next image"
+          >
+            <i className="fas fa-chevron-right text-lg"></i>
+          </button>
+
+          {/* Thumbnail strip */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 overflow-x-auto max-w-[90vw] px-2">
+            {lightboxImages.map((src, i) => (
+              <button
+                key={i}
+                onClick={() => setLightboxIndex(i)}
+                className={`relative shrink-0 w-14 h-10 rounded overflow-hidden border-2 transition-all ${
+                  i === lightboxIndex ? 'border-white scale-110' : 'border-transparent opacity-60 hover:opacity-100'
+                }`}
+              >
+                <Image src={src} alt={`Thumbnail ${i + 1}`} fill className="object-cover" sizes="56px" />
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Call to Action */}
       <section className="py-20 bg-white">

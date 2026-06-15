@@ -34,7 +34,7 @@ export default function BackToTop() {
       }`}
       aria-label="Back to top"
     >
-      <i className="fas fa-arrow-up"></i>
+      <i className="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
   );
 }

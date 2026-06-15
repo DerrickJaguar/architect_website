@@ -21,7 +21,7 @@ export default function Footer() {
                 aria-label="Instagram"
                 className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-linear-to-r hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 transition-all duration-300 hover:-translate-y-1"
               >
-                <i className="fab fa-instagram text-xl"></i>
+                <i className="fab fa-instagram text-xl" aria-hidden="true"></i>
               </a>
               <a
                 href="https://x.com/AshabaBenard?t=I6Y5ZosNcO9kdenc-3gTwg&s=08"
@@ -30,7 +30,7 @@ export default function Footer() {
                 aria-label="Twitter"
                 className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-black transition-all duration-300 hover:-translate-y-1"
               >
-                <i className="fab fa-twitter text-xl"></i>
+                <i className="fab fa-twitter text-xl" aria-hidden="true"></i>
               </a>
               <a
                 href="https://www.facebook.com/Abovearchitects?mibextid=ZbWKwL"
@@ -39,7 +39,7 @@ export default function Footer() {
                 aria-label="Facebook"
                 className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 hover:-translate-y-1"
               >
-                <i className="fab fa-facebook text-xl"></i>
+                <i className="fab fa-facebook text-xl" aria-hidden="true"></i>
               </a>
               <a
                 href="https://www.youtube.com/@abovearchitects"
@@ -48,7 +48,7 @@ export default function Footer() {
                 aria-label="YouTube"
                 className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition-all duration-300 hover:-translate-y-1"
               >
-                <i className="fab fa-youtube text-xl"></i>
+                <i className="fab fa-youtube text-xl" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function Footer() {
             <h4 className="font-display text-xl font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-start">
-                <i className="fas fa-envelope mt-1 mr-3 text-accent"></i>
+                <i className="fas fa-envelope mt-1 mr-3 text-accent" aria-hidden="true"></i>
                 <a
                   href="mailto:abovearchitects@gmail.com"
                   className="hover:text-accent transition-colors break-all"
@@ -105,11 +105,11 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-start">
-                <i className="fas fa-phone mt-1 mr-3 text-accent"></i>
+                <i className="fas fa-phone mt-1 mr-3 text-accent" aria-hidden="true"></i>
                 <span>Kampala, Uganda</span>
               </li>
               <li className="flex items-start">
-                <i className="fas fa-map-marker-alt mt-1 mr-3 text-accent"></i>
+                <i className="fas fa-map-marker-alt mt-1 mr-3 text-accent" aria-hidden="true"></i>
                 <span>Serving clients across Uganda</span>
               </li>
             </ul>
