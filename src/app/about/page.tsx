@@ -16,7 +16,7 @@ const teamMembers: TeamMember[] = [
     bio: 'Leading Above Architects with vision and expertise',
   },
   {
-    name: 'Mr. Joshua',
+    name: 'Mr. Oyila Malu Joshua',
     role: 'Lead Architect',
     image: '/images/Joshua.jpg',
     bio: 'Expert in sustainable design and urban planning',
