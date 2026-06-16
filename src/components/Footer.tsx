@@ -111,7 +111,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start">
                 <i className="fas fa-map-marker-alt mt-1 mr-3 text-accent" aria-hidden="true"></i>
-                <span>Kireka,Kira,Kampala, Uganda
+                <span>Kireka, Kira, Kampala, Uganda
                 0.353948,32.647333</span>
               </li>
             </ul>
