@@ -98,7 +98,7 @@ export default function Footer() {
               <li className="flex items-start">
                 <i className="fas fa-envelope mt-1 mr-3 text-accent" aria-hidden="true"></i>
                 <a
-                  href="mailto:abovearchitects@gmail.com"
+                  href="mailto:contact@abovearchitects.com"
                   className="hover:text-accent transition-colors break-all"
                 >
                   contact@abovearchitects.com
@@ -106,7 +106,9 @@ export default function Footer() {
               </li>
               <li className="flex items-start">
                 <i className="fas fa-phone mt-1 mr-3 text-accent" aria-hidden="true"></i>
-                <span>Kampala, Uganda</span>
+                <span>Kireka,Kira,Kampala, Uganda
+                0.353948,32.647333</span>
+                
               </li>
               <li className="flex items-start">
                 <i className="fas fa-map-marker-alt mt-1 mr-3 text-accent" aria-hidden="true"></i>
