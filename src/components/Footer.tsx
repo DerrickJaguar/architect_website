@@ -106,8 +106,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start">
                 <i className="fas fa-phone mt-1 mr-3 text-accent" aria-hidden="true"></i>
-                <span>Kireka,Kira,Kampala, Uganda
-                0.353948,32.647333</span>
+                <span>+25675507165/+256773491697</span>
                 
               </li>
               <li className="flex items-start">
